@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comemorar Festas - Sua Casa de Festas Infantis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Comemorar Festas</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#pacotes">Pacotes</a></li>
+                    <li><a href="#buffet">Nosso Buffet</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="whatsapp-btn">Orçamento Rápido!</button>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Onde a Magia Acontece e a Diversão Não Tem Fim!</h2>
+            <p>Celebre o aniversário do seu filho no espaço mais completo e seguro da cidade.</p>
+            <a href="#pacotes" class="btn-cta">Ver Pacotes e Preços</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="content-section">
+        <div class="container">
+            <h3>Nossa História e Nossos Brinquedos</h3>
+            <p>Há X anos, a Comemorar Festas transforma sonhos em realidade. Nosso foco é na segurança e na alegria!</p>
+            <div class="brinquedos-lista">
+                <h4>Alguns Brinquedos:</h4>
+                <ul>
+                    <li>Piscina de Bolinhas Gigante</li>
+                    <li>Air Game e Vídeo Games</li>
+                    <li>Estrutura Baby (Fraldário e Área para Menores)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="pacotes" class="content-section light-bg">
+        <div class="container">
+            <h3>Pacotes de Festas Personalizados</h3>
+            <div class="pacote-card">
+                <h4>Pacote Super Festa</h4>
+                <p>O mais completo! Buffet Premium, Decoração temática e 4 horas de pura diversão.</p>
+                <button class="btn-detalhes" data-pacote="super">Ver Detalhes</button>
+            </div>
+            <div class="pacote-card">
+                <h4>Pacote Festa Alegria</h4>
+                <p>Ideal para festas menores e mais íntimas. Serviço essencial e o melhor custo-benefício.</p>
+                <button class="btn-detalhes" data-pacote="alegria">Ver Detalhes</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="buffet" class="content-section">
+        <div class="container">
+            <h3>Nosso Buffet Especial Comemorar Festas</h3>
+            <p class="buffet-intro">Cada item do nosso cardápio é preparado com carinho e qualidade para garantir a alegria de todos os paladares na sua festa!</p>
+            
+            <div class="buffet-grid">
+                <div class="buffet-categoria">
+                    <h4>Salgados e Guloseimas</h4>
+                    <ul>
+                        <li>11 tipos de salgados (fritos e assados)</li>
+                        <li>Salgados Folheados</li>
+                        <li>Mini churros (doce de leite)</li>
+                        <li>Mini pizza</li>
+                        <li>Mini hambúrguer</li>
+                        <li>Mini cachorro-quente</li>
+                        <li>Mini pastéis (carne e queijo)</li>
+                        <li>Tortelete de frango</li>
+                        <li>Batata Frita</li>
+                        <li>Pipoca</li>
+                    </ul>
+                </div>
+                
+                <div class="buffet-categoria">
+                    <h4>Pratos Principais e Complementos</h4>
+                    <ul>
+                        <li>Arroz Carreteiro OU Estrogonofe de Frango OU Galinhada</li>
+                        <li>Sorvete</li>
+                        <li>Bolo de Copa</li>
+                    </ul>
+                </div>
+
+                <div class="buffet-categoria">
+                    <h4>Doces e Bebidas</h4>
+                    <ul>
+                        <li>200 docinhos tradicionais (servidos com o bolo)</li>
+                        <li>Sucos de Frutas (diversos sabores)</li>
+                        <li>Refrigerantes de 1ª linha</li>
+                        <li>Água mineral</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="buffet-obs">Consulte-nos sobre opções para dietas especiais e alérgicos!</p>
+        </div>
+    </section>
+    <section id="galeria" class="content-section light-bg">
+        <div class="container">
+            <h3>Nossos Momentos Mágicos</h3>
+            <div class="galeria-grid">
+                <div class="galeria-item">FOTO 1</div>
+                <div class="galeria-item">FOTO 2</div>
+                <div class="galeria-item">FOTO 3</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="content-section">
+        <div class="container">
+            <h3>Fale Conosco e Solicite Seu Orçamento</h3>
+            <form id="form-contato">
+                <label for="nome">Nome do Responsável:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="telefone">Telefone (WhatsApp):</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="data">Data Desejada:</label>
+                <input type="date" id="data" name="data">
+                
+                <button type="submit" class="btn-cta">Enviar Pedido de Orçamento</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Comemorar Festas. Todos os direitos reservados. Localização: [Seu Endereço Aqui]</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de Cores (Paleta Comemorar Festas) */
+:root {
+    --cor-primaria: #FF69B4;    /* Rosa (da letra "O" e "R") */
+    --cor-secundaria: #FFD700;  /* Amarelo/Dourado (do fundo da logo) */
+    --cor-fundo-claro: #F5F5F5; /* Cinza claro / Quase branco (para seções claras) */
+    --cor-texto: #333;          /* Preto padrão para texto */
+    --cor-titulo: #5C2D91;      /* Roxo Escuro (do fundo da parede e "FESTAS") */
+    --cor-complementar-laranja: #FFA500; /* Laranja (do fundo da logo) */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* CABEÇALHO E NAVEGAÇÃO */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Menu fixo no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--cor-titulo);
+    font-size: 1.8em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+.whatsapp-btn {
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+/* SEÇÃO HERO (INÍCIO) */
+.hero {
+    background-color: var(--cor-complementar-laranja); /* Usando o laranja da logo */
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    /* Substitua com sua imagem de fundo! */
+    /* background-image: url('caminho/para/sua/imagem-fundo.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: white; 
+    /* Se usar uma imagem, mude a cor para var(--cor-titulo) para contraste com o branco */
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: #E91E63; /* Tom mais escuro do rosa */
+}
+
+/* SEÇÕES DE CONTEÚDO GERAL */
+.content-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.content-section h3 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--cor-titulo);
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.light-bg {
+    background-color: var(--cor-fundo-claro);
+}
+
+/* PACOTES */
+.pacote-card {
+    background-color: white;
+    border: 3px solid var(--cor-secundaria);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 15px;
+    display: inline-block;
+    width: calc(50% - 30px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.pacote-card:hover {
+    transform: translateY(-5px);
+}
+
+.pacote-card h4 {
+    color: var(--cor-primaria);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.btn-detalhes {
+    background-color: var(--cor-titulo);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* GALERIA */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.galeria-item {
+    background-color: #ccc; /* Cor para placeholders */
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    overflow: hidden; /* Garantir que a imagem fique dentro do item */
+}
+
+/* FORMULÁRIO DE CONTATO */
+#form-contato {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#form-contato label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--cor-titulo);
+}
+
+#form-contato input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* ESTILO DA SEÇÃO DE BUFFET (NOVA) */
+#buffet .container {
+    text-align: center;
+}
+
+.buffet-intro {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.buffet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    text-align: left; /* Alinhar o texto das listas à esquerda */
+}
+
+.buffet-categoria {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--cor-primaria); /* Detalhe com a cor principal */
+}
+
+.buffet-categoria h4 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--cor-titulo);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.buffet-categoria ul {
+    list-style: none; /* Remove bolinhas padrão */
+    padding-left: 0;
+}
+
+.buffet-categoria ul li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee; /* Linha pontilhada para separar itens */
+    font-size: 0.95em;
+    color: var(--cor-texto);
+    position: relative;
+    padding-left: 20px; /* Espaço para o ícone */
+}
+
+.buffet-categoria ul li::before {
+    content: '★'; /* Ícone lúdico */
+    color: var(--cor-secundaria);
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+
+.buffet-categoria ul li:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.buffet-obs {
+    margin-top: 40px;
+    font-style: italic;
+    color: #888;
+    font-size: 0.9em;
+}
+
+
+/* RODAPÉ */
+footer {
+    background-color: var(--cor-titulo);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* RESPONSIVIDADE BÁSICA */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 10px;
+    }
+    nav ul li {
+        margin: 0 5px;
+    }
+    .pacote-card {
+        width: 100%;
+        margin: 15px 0;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .buffet-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
