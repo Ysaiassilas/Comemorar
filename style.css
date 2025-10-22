@@ -40,9 +40,16 @@ header {
 
 header .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; 
+    align-items: center; /* CENTRALIZA VERTICALMENTE */
     padding: 10px 0;
+}
+
+/* NOVO: AGRUPAMENTO DE MENU E BOTÃO */
+.menu-agrupado {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre o menu e o botão */
 }
 
 header h1 {
@@ -54,12 +61,13 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
+    gap: 15px; /* Espaçamento entre os links do menu */
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--cor-texto);
-    padding: 10px 15px;
+    padding: 10px 0; /* Ajusta o padding vertical para manter o alinhamento */
     transition: color 0.3s;
 }
 
@@ -84,12 +92,10 @@ nav ul li a:hover {
 
 /* SEÇÃO HERO (INÍCIO) */
 .hero {
-    background-color: var(--cor-complementar-laranja); /* Usando o laranja da logo */
+    background-color: var(--cor-complementar-laranja); 
     color: white;
     text-align: center;
     padding: 100px 0;
-    /* Substitua com sua imagem de fundo! */
-    /* background-image: url('caminho/para/sua/imagem-fundo.jpg'); */
     background-size: cover;
     background-position: center;
 }
@@ -99,7 +105,6 @@ nav ul li a:hover {
     font-size: 2.5em;
     margin-bottom: 15px;
     color: white; 
-    /* Se usar uma imagem, mude a cor para var(--cor-titulo) para contraste com o branco */
 }
 
 .btn-cta {
@@ -115,7 +120,7 @@ nav ul li a:hover {
 }
 
 .btn-cta:hover {
-    background-color: #E91E63; /* Tom mais escuro do rosa */
+    background-color: #E91E63; 
 }
 
 /* SEÇÕES DE CONTEÚDO GERAL */
@@ -177,7 +182,7 @@ nav ul li a:hover {
 }
 
 .galeria-item {
-    background-color: #ccc; /* Cor para placeholders */
+    background-color: #ccc; 
     height: 200px;
     border-radius: 8px;
     display: flex;
@@ -185,7 +190,7 @@ nav ul li a:hover {
     justify-content: center;
     font-weight: bold;
     color: white;
-    overflow: hidden; /* Garantir que a imagem fique dentro do item */
+    overflow: hidden; 
 }
 
 /* FORMULÁRIO DE CONTATO */
@@ -214,7 +219,7 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-/* ESTILO DA SEÇÃO DE BUFFET (NOVA) */
+/* ESTILO DA SEÇÃO DE BUFFET */
 #buffet .container {
     text-align: center;
 }
@@ -230,7 +235,7 @@ nav ul li a:hover {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
-    text-align: left; /* Alinhar o texto das listas à esquerda */
+    text-align: left; 
 }
 
 .buffet-categoria {
@@ -238,7 +243,7 @@ nav ul li a:hover {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--cor-primaria); /* Detalhe com a cor principal */
+    border-top: 5px solid var(--cor-primaria); 
 }
 
 .buffet-categoria h4 {
@@ -250,21 +255,21 @@ nav ul li a:hover {
 }
 
 .buffet-categoria ul {
-    list-style: none; /* Remove bolinhas padrão */
+    list-style: none; 
     padding-left: 0;
 }
 
 .buffet-categoria ul li {
     padding: 8px 0;
-    border-bottom: 1px dotted #eee; /* Linha pontilhada para separar itens */
+    border-bottom: 1px dotted #eee; 
     font-size: 0.95em;
     color: var(--cor-texto);
     position: relative;
-    padding-left: 20px; /* Espaço para o ícone */
+    padding-left: 20px; 
 }
 
 .buffet-categoria ul li::before {
-    content: '★'; /* Ícone lúdico */
+    content: '★'; 
     color: var(--cor-secundaria);
     font-size: 1.2em;
     position: absolute;
@@ -273,7 +278,7 @@ nav ul li a:hover {
 }
 
 .buffet-categoria ul li:last-child {
-    border-bottom: none; /* Remove a linha do último item */
+    border-bottom: none; 
 }
 
 .buffet-obs {
@@ -293,25 +298,92 @@ footer {
     font-size: 0.9em;
 }
 
-/* RESPONSIVIDADE BÁSICA */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
+/* ================================================= */
+/* RESPONSIVIDADE - MEDIA QUERIES */
+/* ================================================= */
+
+/* TELAS PEQUENAS (Celulares - Máximo 600px) */
+@media (max-width: 600px) {
+    /* Ajuste de Espaçamento Geral */
+    .content-section {
+        padding: 40px 0;
     }
-    nav ul {
+    
+    /* Cabeçalho */
+    header .container {
+        flex-direction: column; /* Coloca os itens um abaixo do outro */
+        align-items: center;
+        padding: 10px 10px 0 10px; /* Reduz o padding */
+    }
+
+    /* Menu Agrupado: Faz o menu e o botão ocuparem a largura total */
+    .menu-agrupado {
+        width: 100%;
+        flex-direction: column; /* Coloca o menu e o botão um abaixo do outro */
+        gap: 10px;
         margin-top: 10px;
     }
-    nav ul li {
-        margin: 0 5px;
+
+    /* Menu de Links: Esconde ou transforma o menu de navegação principal */
+    nav ul {
+        flex-direction: column; /* Lista vertical */
+        width: 100%;
     }
-    .pacote-card {
+    nav ul li a {
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--cor-fundo-claro);
+    }
+    
+    .whatsapp-btn {
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-bottom: 10px;
+    }
+
+    /* Seção Hero */
+    .hero h2 {
+        font-size: 1.8em;
+    }
+
+    /* Pacotes e Buffet */
+    .pacote-card, .buffet-grid {
         width: 100%;
         margin: 15px 0;
+        grid-template-columns: 1fr; /* Força 1 coluna no grid */
     }
-    .hero h2 {
-        font-size: 2em;
+    
+    .pacote-card {
+        width: 90%; /* Ajusta largura para caber com padding */
     }
+    
+    /* Títulos */
+    .content-section h3 {
+        font-size: 1.5em;
+    }
+}
+
+
+/* TELAS MÉDIAS (Tablets - 601px até 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    
+    header .container {
+        padding: 10px 20px;
+    }
+    
+    /* Menu Agrupado: Ajuste horizontal */
+    .menu-agrupado {
+        gap: 10px;
+    }
+
+    nav ul {
+        gap: 8px; /* Reduz um pouco o espaçamento para caber mais itens */
+    }
+
+    .pacote-card {
+        width: calc(50% - 20px); /* 2 colunas */
+    }
+    
     .buffet-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no grid do buffet */
     }
 }
