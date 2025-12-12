@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Seu número de WhatsApp (usado tanto no botão quanto no formulário)
-    // ATUALIZE AQUI SE O NÚMERO MUDAR!
     const numeroWhatsApp = "61998020681";
 
     // 1. Scroll Suave para as Seções
-    // Permite que o menu navegue suavemente pela página
     const linksInternos = document.querySelectorAll('nav a[href^="#"]');
 
     linksInternos.forEach(link => {
@@ -19,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Ação do Botão de WhatsApp do Menu (Header)
-    // Abre o WhatsApp com uma mensagem padrão
     const whatsappBtn = document.querySelector('.whatsapp-btn');
     
     whatsappBtn.addEventListener('click', () => {
@@ -28,34 +24,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Envio do Formulário de Contato (via WhatsApp)
-    // Estrutura a mensagem com os dados do formulário e redireciona
     const formContato = document.getElementById('form-contato');
     
-    formContato.addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o envio tradicional do formulário
+    if (formContato) {
+        formContato.addEventListener('submit', function(e) {
+            e.preventDefault(); 
 
-        // Captura e sanitiza (limpa) os valores do formulário
-        const nome = document.getElementById('nome').value.trim();
-        const telefone = document.getElementById('telefone').value.trim();
-        const data = document.getElementById('data').value.trim();
+            const nome = document.getElementById('nome').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const data = document.getElementById('data').value.trim();
+            
+            let mensagem = `*Solicitação de Orçamento - Comemorar Festas*%0A%0A`;
+            mensagem += `*Nome:* ${nome || 'Não Informado'}%0A`;
+            mensagem += `*Telefone:* ${telefone || 'Não Informado'}%0A`;
+            mensagem += `*Data Desejada:* ${data ? data : 'Não Informada'}%0A%0A`;
+            mensagem += `Por favor, complete a conversa com mais detalhes sobre o evento!`;
+
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            
+            alert("Sua solicitação foi enviada! Você será redirecionado(a) para o WhatsApp.");
+            
+            formContato.reset();
+        });
+    }
+
+    // 4. Funcionalidade de Esconder/Mostrar o Menu Fixo (Hambúrguer)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerConteudo = document.querySelector('.header-conteudo');
+
+    if (menuToggle && headerConteudo) {
         
-        // Cria a mensagem estruturada (utilizando %0A para quebra de linha)
-        let mensagem = `*Solicitação de Orçamento - Comemorar Festas*%0A%0A`;
-        mensagem += `*Nome:* ${nome || 'Não Informado'}%0A`;
-        mensagem += `*Telefone:* ${telefone || 'Não Informado'}%0A`;
-        mensagem += `*Data Desejada:* ${data ? data : 'Não Informada'}%0A%0A`;
-        mensagem += `Por favor, complete a conversa com mais detalhes sobre o evento!`;
+        // Inicializa o menu como ESCONDIDO no mobile
+        if (window.innerWidth <= 600) {
+            headerConteudo.classList.add('hidden');
+        }
 
-        // Codifica a mensagem para URL e abre o WhatsApp
-        window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`, '_blank');
-        
-        // Alerta para o usuário saber que a ação foi concluída
-        alert("Sua solicitação foi enviada! Você será redirecionado(a) para o WhatsApp.");
-        
-        // Limpa o formulário após a ação
-        formContato.reset();
+        menuToggle.addEventListener('click', () => {
+            // Alterna a classe 'hidden' no conteúdo (para subir/descer)
+            headerConteudo.classList.toggle('hidden');
+            
+            // Alterna a classe 'open' no ícone (para transformar em X)
+            menuToggle.classList.toggle('open');
+        });
 
+        // Opcional: Esconder o menu após clicar em um link interno (mobile)
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 600) { 
+                    headerConteudo.classList.add('hidden');
+                    menuToggle.classList.remove('open'); // Garante que o ícone volte a ser hambúrguer
+                }
+            });
+        });
+    }
 
+    // 5. Efeito Fade-in para Imagens da Galeria (Mantido do código anterior)
+    const galeriaItems = document.querySelectorAll('.galeria-item img');
 
-    });
+    const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    const loadGalleryImages = () => {
+        galeriaItems.forEach((img, index) => {
+            if (isElementInViewport(img) && !img.classList.contains('loaded')) {
+                setTimeout(() => {
+                    img.classList.add('loaded');
+                }, index * 150); 
+            }
+        });
+    };
+
+    loadGalleryImages();
+
+    window.addEventListener('scroll', loadGalleryImages);
+    window.addEventListener('resize', loadGalleryImages);
 });

@@ -6,15 +6,13 @@
 }
 
 /* Variáveis de Cores (Paleta Comemorar Festas) */
-/* Variáveis de Cores (Paleta Comemorar Festas) */
-
 :root {
-    --cor-primaria: #FF69B4;    /* Rosa (da letra "O" e "R") */
-    --cor-secundaria: #FFD700;  /* Amarelo/Dourado (do fundo da logo) */
-    --cor-fundo-claro: #F5F5F5; /* Cinza claro / Quase branco (para seções claras) */
-    --cor-texto: #333;          /* Preto padrão para texto */
-    --cor-titulo: #5C2D91;      /* Roxo Escuro (do fundo da parede e "FESTAS") */
-    --cor-complementar-laranja: #FFA500; /* Laranja (do fundo da logo) */
+    --cor-primaria: #ff69b4;
+    --cor-secundaria: #ffd700;
+    --cor-fundo-claro: #f5f5f5;
+    --cor-texto: #333;
+    --cor-titulo: #5c2d91;
+    --cor-complementar-laranja: #ffa500;
 }
 
 body {
@@ -35,7 +33,7 @@ body {
 header {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky; /* Menu fixo no topo ao rolar */
+    position: sticky; 
     top: 0;
     z-index: 1000;
 }
@@ -43,15 +41,43 @@ header {
 header .container {
     display: flex;
     justify-content: space-between; 
-    align-items: center; /* CENTRALIZA VERTICALMENTE */
+    align-items: center; 
     padding: 10px 0;
+    position: relative; 
 }
 
-/* NOVO: AGRUPAMENTO DE MENU E BOTÃO */
+/* NOVO: Wrapper para o conteúdo do header que sobe/desce no mobile */
+.header-conteudo {
+    display: flex; 
+    width: 100%;
+    justify-content: flex-end; /* Alinha o menu à direita no desktop */
+    align-items: center;
+}
+
+/* NOVO: Estilos Padrões do Toggle (Escondido em Telas Grandes) */
+.menu-toggle {
+    display: none; 
+    cursor: pointer;
+    width: 30px; 
+    height: 25px; 
+    position: relative; 
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-titulo);
+    margin: 5px 0; 
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* TRANSITION GERAL PARA COMPONENTES DO MENU */
 .menu-agrupado {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaço entre o menu e o botão */
+    gap: 20px; 
 }
 
 header h1 {
@@ -63,13 +89,13 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px; /* Espaçamento entre os links do menu */
+    gap: 15px; 
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--cor-texto);
-    padding: 10px 0; /* Ajusta o padding vertical para manter o alinhamento */
+    padding: 10px 0; 
     transition: color 0.3s;
 }
 
@@ -78,7 +104,7 @@ nav ul li a:hover {
 }
 
 .whatsapp-btn {
-    background-color: #25D366; /* Cor do WhatsApp */
+    background-color: #25D366;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -94,12 +120,9 @@ nav ul li a:hover {
 
 /* SEÇÃO HERO (INÍCIO) */
 .hero {
-    /* ADAPTADO PARA IMAGEM DE FUNDO */
-    background-color: var(--cor-titulo); /* Usando Roxo Escuro como overlay */
-    background-image: url('imagens/banner-fundo.jpg'); /* Mude o caminho para sua imagem! */
-    background-blend-mode: multiply; /* Multiplica a imagem com a cor de fundo (cor-titulo) */
-    /* FIM DA ADAPTAÇÃO */
-
+    background-color: var(--cor-titulo); 
+    background-image: url('imagens/banner-fundo.jpg');
+    background-blend-mode: multiply; 
     color: white;
     text-align: center;
     padding: 100px 0;
@@ -147,12 +170,9 @@ nav ul li a:hover {
     background-color: var(--cor-fundo-claro);
 }
 
-/* ==================================== */
-/* NOVO: Estilo para a seção "Sobre Nós" (Texto e Imagem Lado a Lado) */
-/* ==================================== */
-
+/* SEÇÃO "Sobre Nós" (Texto e Imagem Lado a Lado) */
 #sobre .container {
-    text-align: center; /* Mantém o H3 centrado */
+    text-align: center; 
 }
 
 .conteudo-sobre-com-foto { 
@@ -160,7 +180,7 @@ nav ul li a:hover {
     gap: 30px;
     margin-top: 20px;
     text-align: left; 
-    align-items: flex-start; /* Alinha o conteúdo no topo */
+    align-items: flex-start; 
 }
 
 .texto-sobre {
@@ -180,9 +200,6 @@ nav ul li a:hover {
     height: auto;
     display: block;
 }
-
-/* FIM DA SEÇÃO "SOBRE NÓS" */
-/* ==================================== */
 
 /* PACOTES */
 .pacote-card {
@@ -229,22 +246,32 @@ nav ul li a:hover {
     background-color: #ccc; 
     height: 200px;
     border-radius: 8px;
-    /* Ajustado para acomodar a tag img */
     display: block; 
     overflow: hidden; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* NOVO: Estilo para a imagem dentro do item da galeria */
+/* EFEITO FADE-IN PARA IMAGENS DA GALERIA */
 .galeria-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o div sem ser distorcida */
-    transition: transform 0.3s ease;
+    object-fit: cover; 
+    transition: transform 0.3s ease, opacity 0.6s ease-out;
+
+    /* Estado inicial para o fade-in */
+    opacity: 0; 
+    transform: translateY(20px); 
 }
 
+/* Classe que será adicionada via JS para mostrar a imagem */
+.galeria-item img.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efeito zoom ao passar o mouse */
 .galeria-item img:hover {
-    transform: scale(1.05); /* Efeito zoom ao passar o mouse */
+    transform: scale(1.05); 
 }
 
 
@@ -359,68 +386,117 @@ footer {
 
 /* TELAS PEQUENAS (Celulares - Máximo 600px) */
 @media (max-width: 600px) {
+    
     /* Ajuste de Espaçamento Geral */
     .content-section {
         padding: 40px 0;
     }
     
-    /* Cabeçalho */
+    /* CABEÇALHO GERAL (Fixo) */
     header .container {
-        flex-direction: column; /* Coloca os itens um abaixo do outro */
+        /* Configuração de tela pequena: Título à esquerda, Hambúrguer à direita */
+        flex-direction: row; 
+        justify-content: space-between; 
         align-items: center;
-        padding: 10px 10px 0 10px; /* Reduz o padding */
+        padding: 10px 20px; 
+        height: 60px; /* Altura fixa do header quando colapsado */
+        overflow: hidden; /* CRÍTICO: Esconde o conteúdo extra na altura */
+    }
+    
+    /* TÍTULO NO MOBILE: Posicionado fixo dentro do header de 60px */
+    header h1 {
+        z-index: 1001; /* Fica acima do menu deslizante */
+        margin: 0;
+        /* Revertendo para o fluxo normal do Flexbox para alinhamento: */
+        position: static; 
+        transform: none;
     }
 
-    /* Menu Agrupado: Faz o menu e o botão ocuparem a largura total */
+    /* MOSTRA O BOTÃO HAMBÚRGUER */
+    .menu-toggle {
+        display: block; /* Apenas no mobile */
+        z-index: 1002;
+    }
+
+    /* CONTEÚDO QUE VAI SUBIR/DESCER (Nav e Botão WhatsApp) */
+    .header-conteudo {
+        /* Tira do fluxo e posiciona para deslizar */
+        position: absolute; 
+        top: 60px; /* Começa logo abaixo da altura do header (60px) */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        padding-bottom: 20px;
+        z-index: 999;
+        /* TRANSITION CRÍTICA: Faz a descida ser suave */
+        transition: transform 0.4s ease-out; 
+        
+        /* Ajusta o layout interno: Menu em coluna */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ESTADO ESCONDIDO: Move todo o conteúdo para cima */
+    .header-conteudo.hidden {
+        /* O menu sobe para fora da área de 60px do header */
+        transform: translateY(-100%); 
+    }
+
+    /* Estilos internos dos itens do menu */
     .menu-agrupado {
         width: 100%;
-        flex-direction: column; /* Coloca o menu e o botão um abaixo do outro */
+        flex-direction: column; 
         gap: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
+        padding: 0 20px;
     }
-
-    /* Menu de Links: Esconde ou transforma o menu de navegação principal */
     nav ul {
-        flex-direction: column; /* Lista vertical */
+        flex-direction: column; 
         width: 100%;
+        text-align: center;
     }
     nav ul li a {
         display: block;
-        padding: 8px 0;
+        padding: 10px 0;
         border-bottom: 1px solid var(--cor-fundo-claro);
     }
-    
     .whatsapp-btn {
-        width: 100%; /* Botão ocupa toda a largura */
+        width: 100%; 
         margin-bottom: 10px;
     }
+    
+    /* Efeito de ROTAÇÃO DO HAMBÚRGUER para se transformar em "X" */
+    .menu-toggle.open span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0; /* Barra do meio some */
+    }
+    .menu-toggle.open span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
 
-    /* Seção Hero */
+    /* ... (Restante do seu CSS Mobile) ... */
+
     .hero h2 {
         font-size: 1.8em;
     }
-
-    /* NOVO: Faz o texto e a imagem ficarem um abaixo do outro no mobile (Seção Sobre) */
     .conteudo-sobre-com-foto {
         flex-direction: column;
         text-align: center;
     }
     .imagem-sobre {
-        max-width: 100%; /* Ocupa toda a largura */
+        max-width: 100%; 
     }
-    
-    /* Pacotes e Buffet */
-    .pacote-card, .buffet-grid {
-        width: 100%;
-        margin: 15px 0;
-        grid-template-columns: 1fr; /* Força 1 coluna no grid */
-    }
-    
     .pacote-card {
-        width: 90%; /* Ajusta largura para caber com padding */
+        width: 90%; 
+        margin: 15px auto;
     }
-    
-    /* Títulos */
+    .buffet-grid {
+        grid-template-columns: 1fr;
+    }
     .content-section h3 {
         font-size: 1.5em;
     }
@@ -434,20 +510,19 @@ footer {
         padding: 10px 20px;
     }
     
-    /* Menu Agrupado: Ajuste horizontal */
     .menu-agrupado {
         gap: 10px;
     }
 
     nav ul {
-        gap: 8px; /* Reduz um pouco o espaçamento para caber mais itens */
+        gap: 8px; 
     }
 
     .pacote-card {
-        width: calc(50% - 20px); /* 2 colunas */
+        width: calc(50% - 20px); 
     }
     
     .buffet-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas no grid do buffet */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
