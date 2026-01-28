@@ -68,15 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Opcional: Esconder o menu após clicar em um link interno (mobile)
-        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 600) { 
-                    headerConteudo.classList.add('hidden');
-                    menuToggle.classList.remove('open'); // Garante que o ícone volte a ser hambúrguer
-                }
-            });
-        });
-    }
+       // Localize onde você gerencia o menuToggle e adicione/atualize isso:
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+        // Quando clicar em qualquer link, adiciona a classe que esconde
+        headerConteudo.classList.add('hidden');
+        // E remove a classe 'open' do botão de 3 barrinhas para ele voltar ao normal
+        menuToggle.classList.remove('open');
+    });
+});
 
     // 5. Efeito Fade-in para Imagens da Galeria (Mantido do código anterior)
     const galeriaItems = document.querySelectorAll('.galeria-item img');
