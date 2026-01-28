@@ -386,122 +386,60 @@ footer {
 
 /* TELAS PEQUENAS (Celulares - Máximo 600px) */
 @media (max-width: 600px) {
-    
-    /* Ajuste de Espaçamento Geral */
-    .content-section {
-        padding: 40px 0;
-    }
-    
-    /* CABEÇALHO GERAL (Fixo) */
+    /* Faz o container do header manter o título e o botão alinhados */
     header .container {
-        /* Configuração de tela pequena: Título à esquerda, Hambúrguer à direita */
-        flex-direction: row; 
-        justify-content: space-between; 
-        align-items: center;
-        padding: 10px 20px; 
-        height: 60px; /* Altura fixa do header quando colapsado */
-        overflow: hidden; /* CRÍTICO: Esconde o conteúdo extra na altura */
-    }
-    
-    /* TÍTULO NO MOBILE: Posicionado fixo dentro do header de 60px */
-    header h1 {
-        z-index: 1001; /* Fica acima do menu deslizante */
-        margin: 0;
-        /* Revertendo para o fluxo normal do Flexbox para alinhamento: */
-        position: static; 
-        transform: none;
-    }
-
-    /* MOSTRA O BOTÃO HAMBÚRGUER */
-    .menu-toggle {
-        display: block; /* Apenas no mobile */
-        z-index: 1002;
-    }
-
-    /* CONTEÚDO QUE VAI SUBIR/DESCER (Nav e Botão WhatsApp) */
-    .header-conteudo {
-        /* Tira do fluxo e posiciona para deslizar */
-        position: absolute; 
-        top: 60px; /* Começa logo abaixo da altura do header (60px) */
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-        padding-bottom: 20px;
-        z-index: 999;
-        /* TRANSITION CRÍTICA: Faz a descida ser suave */
-        transition: transform 0.4s ease-out; 
-        
-        /* Ajusta o layout interno: Menu em coluna */
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
+        padding: 10px 5%;
+        height: 70px;
     }
 
-    /* ESTADO ESCONDIDO: Move todo o conteúdo para cima */
+    /* O "Quadradinho" do Menu */
+    .header-conteudo {
+        position: absolute;
+        top: 75px; /* Distância do topo */
+        right: 5%; /* Alinhado à direita */
+        width: 220px; /* Largura do quadradinho */
+        background-color: #fff;
+        border-radius: 15px; /* Bordas arredondadas */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+        border: 2px solid var(--cor-primaria); /* Borda rosa para combinar */
+        padding: 20px;
+        z-index: 1000;
+        
+        /* Efeito de aparecer suavemente */
+        transition: all 0.3s ease-in-out;
+        transform-origin: top right; /* Faz ele crescer a partir do botão */
+    }
+
+    /* Quando estiver escondido */
     .header-conteudo.hidden {
-        /* O menu sobe para fora da área de 60px do header */
-        transform: translateY(-100%); 
+        display: block !important; /* Mantém no DOM para a transição funcionar */
+        transform: scale(0); /* Encolhe até sumir */
+        opacity: 0;
+        pointer-events: none; /* Impede clicar nele enquanto invisível */
     }
 
-    /* Estilos internos dos itens do menu */
+    /* Ajuste dos itens dentro do quadradinho */
     .menu-agrupado {
-        width: 100%;
-        flex-direction: column; 
-        gap: 10px;
-        margin-top: 20px;
-        padding: 0 20px;
-    }
-    nav ul {
-        flex-direction: column; 
-        width: 100%;
-        text-align: center;
-    }
-    nav ul li a {
-        display: block;
-        padding: 10px 0;
-        border-bottom: 1px solid var(--cor-fundo-claro);
-    }
-    .whatsapp-btn {
-        width: 100%; 
-        margin-bottom: 10px;
-    }
-    
-    /* Efeito de ROTAÇÃO DO HAMBÚRGUER para se transformar em "X" */
-    .menu-toggle.open span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    .menu-toggle.open span:nth-child(2) {
-        opacity: 0; /* Barra do meio some */
-    }
-    .menu-toggle.open span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    /* ... (Restante do seu CSS Mobile) ... */
-
-    .hero h2 {
-        font-size: 1.8em;
-    }
-    .conteudo-sobre-com-foto {
         flex-direction: column;
-        text-align: center;
+        gap: 15px;
     }
-    .imagem-sobre {
-        max-width: 100%; 
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
     }
-    .pacote-card {
-        width: 90%; 
-        margin: 15px auto;
-    }
-    .buffet-grid {
-        grid-template-columns: 1fr;
-    }
-    .content-section h3 {
-        font-size: 1.5em;
+
+    nav ul li a {
+        font-weight: bold;
+        color: var(--cor-titulo);
+        border-bottom: 1px solid #eee;
+        padding: 8px 0;
     }
 }
-
 
 /* TELAS MÉDIAS (Tablets - 601px até 992px) */
 @media (min-width: 601px) and (max-width: 992px) {
