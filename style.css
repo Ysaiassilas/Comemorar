@@ -386,31 +386,28 @@ footer {
 
 /* TELAS PEQUENAS (Celulares - Máximo 600px) */
 @media (max-width: 600px) {
-    /* Faz o container do header manter o título e o botão alinhados */
     header .container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* Logo na esquerda, botão na direita */
         align-items: center;
-        padding: 10px 5%;
-        height: 70px;
+        height: 70px; /* Altura fixa confortável */
+        padding: 0 20px;
     }
 
-    /* O "Quadradinho" do Menu */
     .header-conteudo {
         position: absolute;
-        top: 75px; /* Distância do topo */
-        right: 5%; /* Alinhado à direita */
-        width: 220px; /* Largura do quadradinho */
+        top: 70px; /* Exatamente abaixo do header */
+        left: 0;
+        width: 100%;
         background-color: #fff;
-        border-radius: 15px; /* Bordas arredondadas */
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
-        border: 2px solid var(--cor-primaria); /* Borda rosa para combinar */
-        padding: 20px;
-        z-index: 1000;
-        
-        /* Efeito de aparecer suavemente */
-        transition: all 0.3s ease-in-out;
-        transform-origin: top right; /* Faz ele crescer a partir do botão */
+        transition: all 0.4s ease-in-out;
+        z-index: 999;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .header-conteudo.hidden {
+        transform: translateY(-150%); /* Esconde subindo */
+        opacity: 0;
     }
 
     /* Quando estiver escondido */
