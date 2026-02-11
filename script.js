@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    const numeroWhatsApp = "61996236584";
+    const numeroWhatsApp = "61995513550";
 
     // 1. Scroll Suave para as Seções
     const linksInternos = document.querySelectorAll('nav a[href^="#"]');
