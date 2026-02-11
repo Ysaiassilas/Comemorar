@@ -48,37 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Funcionalidade de Esconder/Mostrar o Menu Fixo (Hambúrguer)
+ // 4. Funcionalidade do Menu Hambúrguer
     const menuToggle = document.querySelector('.menu-toggle');
     const headerConteudo = document.querySelector('.header-conteudo');
 
     if (menuToggle && headerConteudo) {
-        
-        // Inicializa o menu como ESCONDIDO no mobile
         if (window.innerWidth <= 600) {
             headerConteudo.classList.add('hidden');
         }
 
         menuToggle.addEventListener('click', () => {
-            // Alterna a classe 'hidden' no conteúdo (para subir/descer)
             headerConteudo.classList.toggle('hidden');
-            
-            // Alterna a classe 'open' no ícone (para transformar em X)
             menuToggle.classList.toggle('open');
         });
 
-        // Opcional: Esconder o menu após clicar em um link interno (mobile)
-       // Localize onde você gerencia o menuToggle e adicione/atualize isso:
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', () => {
-        // Quando clicar em qualquer link, adiciona a classe que esconde
-        headerConteudo.classList.add('hidden');
-        // E remove a classe 'open' do botão de 3 barrinhas para ele voltar ao normal
-        menuToggle.classList.remove('open');
-    });
-});
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                headerConteudo.classList.add('hidden');
+                menuToggle.classList.remove('open');
+            });
+        });
+    } // <-- Faltava fechar essa chave
 
-    // 5. Efeito Fade-in para Imagens da Galeria (Mantido do código anterior)
+    // 5. Efeito Fade-in para Imagens da Galeria
     const galeriaItems = document.querySelectorAll('.galeria-item img');
 
     const isElementInViewport = (el) => {
@@ -102,7 +94,6 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     };
 
     loadGalleryImages();
-
     window.addEventListener('scroll', loadGalleryImages);
     window.addEventListener('resize', loadGalleryImages);
 });
